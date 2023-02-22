@@ -1,20 +1,20 @@
 exports.config = {
-    user: process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
-    key: process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
+    user: process.env.BROWSERSTACK_USERNAME || process.env.USERNAME,
+    key: process.env.BROWSERSTACK_ACCESS_KEY || process.env.ACCESS_KEY,
   
     updateJob: false,
     specs: [
-      './e2e/specs/**.specs.js'
+      '../test/specs/**.spec.js'
     ],
     exclude: [],
   
     capabilities: [{
       project: "First Webdriverio Android Project",
       build: 'Webdriverio Android',
-      name: 'first_test',
-      device: 'Google Pixel 3',
-      os_version: "9.0",
-      app: process.env.BROWSERSTACK_APP_ID || 'bs://<hashed app-id>',
+      name: 'first_test_Vivo',
+      device: 'Vivo Y21',
+      os_version: "11.0",
+      app: process.env.BROWSERSTACK_APP_ID || 'bs://2d21bbf63c36309f5703dce5a7683d1580443b73',
       'browserstack.debug': true
     }],
   
