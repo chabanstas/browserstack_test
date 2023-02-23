@@ -12,3 +12,8 @@ jobs:
       run: npm install
     - name: Run all tests
       run: npm run wdio-google-pixel
+      env:
+            CI: true
+            USERNAME: ${{ secrets.USERNAME }}
+            ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+    - uses: actions/checkout@v2
