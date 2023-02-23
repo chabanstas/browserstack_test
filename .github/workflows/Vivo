@@ -1,0 +1,19 @@
+name: Test Vivo
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '16.x'
+    - name: Install dependencies
+      run: npm install
+    - name: Run all tests
+      run: npm run wdio-vivo
+      env:
+          CI: true
+          USERNAME: ${{ secrets.USERNAME }}
+          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+    - uses: actions/checkout@v2
