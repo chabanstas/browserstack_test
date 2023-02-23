@@ -27,3 +27,14 @@ jobs:
         repository: chabanstas/browserstack_test
         ref:  report
         path: ./docs
+        
+    - name: Push to repository
+      uses: cpina/github-action-push-to-another-repository@main
+      if: always()
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.ACTIONS_TOKEN }}
+      with:
+        destination-github-username: 'chabanstas'
+        destination-repository-name: 'browserstack_test'
+        user-email: stanislav.chaban.02@gmail.com
+        target-branch: main
