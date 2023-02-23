@@ -2,6 +2,8 @@ name: Testing Google Pixel device
 on: 
   push:
     branches: master
+  pull_request:
+    branches: master
 jobs:
   test:
     timeout-minutes: 60
