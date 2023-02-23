@@ -17,6 +17,4 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
     - uses: actions/checkout@v2
-      if: always()
-      with:
-        repository: chabanstas/browserstack_test
+
