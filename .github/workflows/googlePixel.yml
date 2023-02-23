@@ -1,30 +1,13 @@
-name: Testing Google Pixel device
-on: 
-  push:
-    branches: master
-  pull_request:
-    branches: master
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
 jobs:
-  test:
-    timeout-minutes: 60
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '14.x'
-    - name: Install dependencies
-      run: npm install
-    - name: Run all tests
-      run: npm run wdio-google-pixel
-      env:
-          CI: true
-          USERNAME: ${{ secrets.USERNAME }}
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-    - uses: actions/checkout@v2
-      if: always()
-      with:
-        repository: chabanstas/browserstack_test
-        ref:  report
-        path: ./docs
- 
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
